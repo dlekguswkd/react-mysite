@@ -1,12 +1,17 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Index from './views/main/Index';
+import Main from './pages/main/Main';
+import LoginForm from './pages/user/LoginForm';
+
+// css
+import './css/mysite.css';
 
 function App() {
 	return (
 		<div>
 			<BrowserRouter>
 				<Routes>
-					<Route path='/index' element={<Index />} />
+					<Route path='' element={<Main />} />
+					<Route path='/user/loginform' element={<LoginForm />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

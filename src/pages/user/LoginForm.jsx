@@ -9,9 +9,11 @@ import React from 'react';
 //import css
 
 
-const Index = () => {
+const LoginForm = () => {
 
 	/*---일반 변수 --------------------------------------------*/
+
+	/*---라우터 관련------------------------------------------*/
 
 	/*---상태관리 변수들(값이 변화면 화면 랜더링) ----------*/
 
@@ -28,4 +30,4 @@ const Index = () => {
     );
 }
 
-export default Index;
+export default LoginForm;

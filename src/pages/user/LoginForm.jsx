@@ -1,6 +1,6 @@
 //import 라이브러리
 import React, {useState} from 'react';
-import { json, Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 // import { useSearchParams} from 'react-router-dom';	파라미터값사용하는 라우터
 

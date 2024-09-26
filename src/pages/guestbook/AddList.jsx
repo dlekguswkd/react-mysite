@@ -61,9 +61,9 @@ const AddList = () => {
                             <form action="" method="">
                                 <table id="guestAdd">
                                     <colgroup>
-                                        <col style="width: 70px;" />
+                                        <col style={{width: '70px'}} />
                                         <col />
-                                        <col style="width: 70px;" />
+                                        <col style={{width: '70px'}} />
                                         <col />
                                     </colgroup>
                                     <tbody>
@@ -71,7 +71,7 @@ const AddList = () => {
                                             <th><label className="form-text" for="input-uname">이름</label></th>
                                             <td><input id="input-uname" type="text" name="name" /></td>
                                             <th><label className="form-text" for="input-pass">패스워드</label></th>
-                                            <td><input id="input-pass"type="password" name="password" /></td>
+                                            <td><input id="input-pass" type="password" name="password" /></td>
                                         </tr>
                                         <tr>
                                             <td colSpan="4"><textarea name="content" cols="72" rows="5"></textarea></td>
@@ -89,10 +89,10 @@ const AddList = () => {
                             
                             <table className="guestRead">
                                 <colgroup>
-                                    <col style="width: 10%;" />
-                                    <col style="width: 40%;" />
-                                    <col style="width: 40%;" />
-                                    <col style="width: 10%;" />
+                                    <col style={{width: '10%'}} />
+                                    <col style={{width: '40%'}} />
+                                    <col style={{width: '40%'}} />
+                                    <col style={{width: '10%'}} />
                                 </colgroup>
                                 <tr>
                                     <td>1234555</td>
@@ -108,10 +108,10 @@ const AddList = () => {
                             
                             <table className="guestRead">
                                 <colgroup>
-                                        <col style="width: 10%;" />
-                                        <col style="width: 40%;" />
-                                        <col style="width: 40%;" />
-                                        <col style="width: 10%;" />
+                                    <col style={{width: '10%'}} />
+                                    <col style={{width: '40%'}} />
+                                    <col style={{width: '40%'}} />
+                                    <col style={{width: '10%'}} />
                                 </colgroup>
                                 <tr>
                                     <td>1234555</td>

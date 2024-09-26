@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 // import { useSearchParams} from 'react-router-dom';	파라미터값사용하는 라우터
 
 //import 컴포넌트
+import Header from '../include/Header';
+import Footer from '../include/Footer';
+
 
 //import css
 import '../../css/user.css';
@@ -27,35 +30,11 @@ const JoinOk = () => {
         <>
             <div id="wrap">
 
-                <div id="header" className="clearfix">
-                    <h1>
-                        <Link to="" rel="noreferrer noopener">MySite</Link>
-                    </h1>
+                
+                {/* <!-- header + nav import --> */}
+                <Header />
+                {/* <!-- //header + nav --> */}
 
-                    {/* <!-- 
-                    <ul>
-                        <li>황일영 님 안녕하세요^^</li>
-                        <li><Link to="" rel="noreferrer noopener" className="btn_s">로그아웃</Link></li>
-                        <li><Link to="" rel="noreferrer noopener" className="btn_s">회원정보수정</Link></li>
-                    </ul>
-                    -->	 */}
-                    <ul>
-                        <li><Link to="" rel="noreferrer noopener" className="btn_s">로그인</Link></li>
-                        <li><Link to="" rel="noreferrer noopener" className="btn_s">회원가입</Link></li>
-                    </ul>
-                    
-                </div>
-                {/* <!-- //header --> */}
-
-                <div id="nav">
-                    <ul className="clearfix">
-                        <li><Link to="" rel="noreferrer noopener">입사지원서</Link></li>
-                        <li><Link to="" rel="noreferrer noopener">게시판</Link></li>
-                        <li><Link to="" rel="noreferrer noopener">갤러리</Link></li>
-                        <li><Link to="" rel="noreferrer noopener">방명록</Link></li>
-                    </ul>
-                </div>
-                {/* <!-- //nav --> */}
 
                 <div id="container" className="clearfix">
                     <div id="aside">
@@ -102,10 +81,10 @@ const JoinOk = () => {
                 {/* <!-- //container  --> */}
 
 
-                <div id="footer">
-                    Copyright ⓒ 2020 황일영. All right reserved
-                </div>
-                {/* <!-- //footer --> */}
+                {/* <!-- footer import -->  */}
+                <Footer />
+                {/* <!-- //footer -->  */}
+                
 
             </div>
             {/* <!-- //wrap --> */}

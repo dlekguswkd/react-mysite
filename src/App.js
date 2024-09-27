@@ -31,6 +31,7 @@ function App() {
 
 					<Route path='/guestbook/addlist' element={<AddList />} />
 					<Route path='/guestbook/deleteform' element={<DeleteForm />} />
+					<Route path='/guestbook/ItemGuest' element={<ItemGuest />} />
 
 					<Route path='/attach/form' element={<AttachForm />} />
 					<Route path='/attach/result' element={<Result />} />

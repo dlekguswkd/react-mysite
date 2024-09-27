@@ -8,6 +8,11 @@ import ModifyForm from './pages/user/ModifyForm';
 
 import AddList from './pages/guestbook/AddList';
 import DeleteForm from './pages/guestbook/DeleteForm';
+import ItemGuest from './pages/guestbook/ItemGuest';
+
+import AttachForm from './pages/attach/Form';
+import Result from './pages/attach/Result';
+import AttachForm2 from './pages/attach/Form2';
 
 // css
 import './css/mysite.css';
@@ -26,6 +31,10 @@ function App() {
 
 					<Route path='/guestbook/addlist' element={<AddList />} />
 					<Route path='/guestbook/deleteform' element={<DeleteForm />} />
+
+					<Route path='/attach/form' element={<AttachForm />} />
+					<Route path='/attach/result' element={<Result />} />
+					<Route path='/attach/form2' element={<AttachForm2 />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

@@ -1,7 +1,6 @@
 //import 라이브러리
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';	
-// import React, {useState} from 'react';	화면 상태관리
 // import { useSearchParams} from 'react-router-dom';	파라미터값사용하는 라우터
 
 //import 컴포넌트
@@ -19,11 +18,27 @@ const AddList = () => {
 	/*---라우터 관련------------------------------------------*/
 
 	/*---상태관리 변수들(값이 변화면 화면 랜더링) ----------*/
+    const [name, setName] = useState('');
+    const [pw, setPw] = useState('');
 
 	/*---일반 메소드 -----------------------------------------*/
 
 	/*---생명주기 + 이벤트 관련 메소드 ----------------------*/
+    // 이름
+    const handleName = (e)=>{
+        setName(e.target.value);
+    }
 
+    // 패스워드
+    const handlePw = (e)=> {
+        setPw(e.target.value);
+    }
+
+    // 등록버튼 눌렀을때
+    const handleAdd = (e)=> {
+        e.preventDefault();
+        console.log("등록버튼 클릭");
+    }
 
     return (
         <>
@@ -58,7 +73,7 @@ const AddList = () => {
                         {/* <!-- //content-head --> */}
 
                         <div id="guestbook">
-                            <form action="" method="">
+                            <form action="" method="" onSubmit={handleAdd}>
                                 <table id="guestAdd">
                                     <colgroup>
                                         <col style={{width: '70px'}} />
@@ -69,12 +84,12 @@ const AddList = () => {
                                     <tbody>
                                         <tr>
                                             <th><label className="form-text" for="input-uname">이름</label></th>
-                                            <td><input id="input-uname" type="text" name="name" /></td>
+                                            <td><input id="input-uname" type="text" name="name" value={name} onChange={handleName} /></td>
                                             <th><label className="form-text" for="input-pass">패스워드</label></th>
-                                            <td><input id="input-pass" type="password" name="password" /></td>
+                                            <td><input id="input-pass" type="password" name="password" value={pw}  onChange={handlePw} /></td>
                                         </tr>
                                         <tr>
-                                            <td colSpan="4"><textarea name="content" cols="72" rows="5"></textarea></td>
+                                            <td colSpan="4"><textarea name="content" cols="72" rows="5" ></textarea></td>
                                         </tr>
                                         <tr className="button-area">
                                             <td colSpan="4" class="text-center"><button type="submit">등록</button></td>

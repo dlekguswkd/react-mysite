@@ -14,6 +14,11 @@ import AttachForm from './pages/attach/Form';
 import Result from './pages/attach/Result';
 import AttachForm2 from './pages/attach/Form2';
 
+import List from './pages/board/List';
+import BoardModifyForm from './pages/board/ModifyForm';
+import Read from './pages/board/Read';
+import BoardWriteForm from './pages/board/WriteForm';
+
 // css
 import './css/mysite.css';
 
@@ -30,12 +35,17 @@ function App() {
 					<Route path='/user/modifyform' element={<ModifyForm />} />
 
 					<Route path='/guestbook/addlist' element={<AddList />} />
-					<Route path='/guestbook/deleteform' element={<DeleteForm />} />
+					<Route path='/guestbook/deleteform/:no' element={<DeleteForm />} />
 					<Route path='/guestbook/ItemGuest' element={<ItemGuest />} />
 
 					<Route path='/attach/form' element={<AttachForm />} />
 					<Route path='/attach/result' element={<Result />} />
 					<Route path='/attach/form2' element={<AttachForm2 />} />
+
+					<Route path='/board/list' element={<List />} />
+					<Route path='/board/modifyform' element={<BoardModifyForm />} />
+					<Route path='/board/read' element={<Read />} />
+					<Route path='/board/writeform' element={<BoardWriteForm />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

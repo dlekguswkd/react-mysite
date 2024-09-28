@@ -1,8 +1,6 @@
 //import 라이브러리
 import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';	
 import axios from 'axios';
-// import { useSearchParams} from 'react-router-dom';	파라미터값사용하는 라우터
 
 //import 컴포넌트
 import Header from '../include/Header';
@@ -22,6 +20,7 @@ const AddList = () => {
 	/*---상태관리 변수들(값이 변화면 화면 랜더링) ----------*/
     const [name, setName] = useState('');
     const [pw, setPw] = useState('');
+    const [content, setContent] = useState('');
     const [guestList, setGuestList] = useState([]);
 
 	/*---일반 메소드 -----------------------------------------*/
@@ -64,6 +63,11 @@ const AddList = () => {
         setPw(e.target.value);
     }
 
+    // 내용
+    const handleContent = (e)=> {
+        setContent(e.target.value);
+    }
+
     // 등록버튼 눌렀을때
     const handleAdd = (e)=> {
         e.preventDefault();
@@ -71,9 +75,39 @@ const AddList = () => {
 
         const guestVo = {
             name: name,
+            password: pw,
             content: content
         }
         console.log(guestVo);
+
+        // 서버로 데이터 전송
+        axios({
+            method: 'post', // 저장 (등록)
+            url: 'http://localhost:9000/api/guestbooks',
+
+            headers: { "Content-Type": "application/json; charset=utf-8" }, 	// post put
+
+            data: guestVo, // put, post, JSON(자동변환됨)
+
+            responseType: 'json' //수신타입 받을때
+        }).then(response => {
+            console.log(response); //수신데이타
+
+            if (response.data.result ==='success') {
+                // 리다이렉트
+                getGuestList();
+                setName('');
+                setPw('');
+                setContent('');
+            
+            }else {
+                alert("등록실패");
+            }
+
+        }).catch(error => {
+            console.log(error);
+        });
+
     }
 
     return (
@@ -125,7 +159,7 @@ const AddList = () => {
                                             <td><input id="input-pass" type="password" name="password" value={pw}  onChange={handlePw} /></td>
                                         </tr>
                                         <tr>
-                                            <td colSpan="4"><textarea name="content" cols="72" rows="5" ></textarea></td>
+                                            <td colSpan="4"><textarea name="content" cols="72" rows="5" value={content} onChange={handleContent} ></textarea></td>
                                         </tr>
                                         <tr className="button-area">
                                             <td colSpan="4" class="text-center"><button type="submit">등록</button></td>
@@ -140,10 +174,8 @@ const AddList = () => {
                             
                             {guestList.map((guestbookVo)=> {
                                 return (
-                                    <div>
-                                        <ItemGuest  key={guestbookVo.no}
-                                                    guest={guestbookVo}
-                                        />
+                                    <div key={guestbookVo.no}>
+                                        <ItemGuest guest={guestbookVo} />
                                     </div>
                         
 

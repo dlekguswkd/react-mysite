@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 //import 컴포넌트
 
 //import css
+import '../../css/guestbook.css';
 
 
 const ItemGuest = (props) => {
@@ -32,15 +33,17 @@ const ItemGuest = (props) => {
 					<col style={{width: '40%'}} />
 					<col style={{width: '10%'}} />
 				</colgroup>
-				<tr>
-					<td>{guest.no}</td>
-					<td>{guest.name}</td>
-					<td>{guest.regDate}</td>
-					<td><Link to="" rel="noreferrer noopener">[삭제]</Link></td>
-				</tr>
-				<tr>
-					<td colSpan="4" className="text-left">{guest.content}</td>
-				</tr>
+				<tbody>
+					<tr>
+						<td>{guest.no}</td>
+						<td>{guest.name}</td>
+						<td>{guest.regDate}</td>
+						<td><Link to={`/guestbook/deleteform/${guest.no}`} rel="noreferrer noopener">[삭제]</Link></td>
+					</tr>
+					<tr>
+						<td colSpan="4" className="text-left">{guest.content}</td>
+					</tr>
+				</tbody>
 			</table>
 			{/* <!-- //guestRead --> */}
         </>

@@ -1,12 +1,14 @@
 //import 라이브러리
-import React from 'react';
-import { Link } from 'react-router-dom';	
-// import React, {useState} from 'react';	화면 상태관리
+import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';	
 // import { useSearchParams} from 'react-router-dom';	파라미터값사용하는 라우터
 
 //import 컴포넌트
 import Header from '../include/Header';
 import Footer from '../include/Footer';
+import ItemBoard from './ItemBoard';
+
 
 //import css
 import '../../css/board.css';
@@ -19,10 +21,36 @@ const List = () => {
 	/*---라우터 관련------------------------------------------*/
 
 	/*---상태관리 변수들(값이 변화면 화면 랜더링) ----------*/
+    const [boardList, setBoardList] = useState([]);
 
 	/*---일반 메소드 -----------------------------------------*/
+    const getBoardList = ()=> {
+
+        // 서버로 데이터 전송
+        axios({
+            method: 'get', // put, post, delete
+            url: 'http://localhost:9000/api/boards',
+
+            responseType: 'json' //수신타입 받을때
+        }).then(response => {
+            console.log(response); //수신데이타
+            setBoardList(response.data.apiData);
+
+        }).catch(error => {
+            console.log(error);
+        });
+
+    }
+
 
 	/*---생명주기 + 이벤트 관련 메소드 ----------------------*/
+    // 마운트됐을때
+    useEffect(()=>{
+        console.log("마운트 됐어요");
+        getBoardList();
+
+    }, []);
+
 
 
     return (
@@ -38,7 +66,7 @@ const List = () => {
                     <div id="aside">
                         <h2>게시판</h2>
                         <ul>
-                            <li><Link to="" rel="noreferrer noopener">일반게시판</Link></li>
+                            <li><Link to="/board/list" rel="noreferrer noopener">일반게시판</Link></li>
                             <li><Link to="" rel="noreferrer noopener">댓글게시판</Link></li>
                         </ul>
                     </div>
@@ -79,46 +107,11 @@ const List = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>123</td>
-                                            <td className="text-left"><Link to="#" rel="noreferrer noopener">게시판 게시글입니다.</Link></td>
-                                            <td>정우성</td>
-                                            <td>1232</td>
-                                            <td>2020-12-23</td>
-                                            <td><Link to="" rel="noreferrer noopener">[삭제]</Link></td>
-                                        </tr>
-                                        <tr>
-                                        <td>123</td>
-                                            <td className="text-left"><Link to="#" rel="noreferrer noopener">게시판 게시글입니다.</Link></td>
-                                            <td>정우성</td>
-                                            <td>1232</td>
-                                            <td>2020-12-23</td>
-                                            <td><Link to="" rel="noreferrer noopener">[삭제]</Link></td>
-                                        </tr>
-                                        <tr>
-                                            <td>123</td>
-                                            <td className="text-left"><Link to="#" rel="noreferrer noopener">게시판 게시글입니다.</Link></td>
-                                            <td>정우성</td>
-                                            <td>1232</td>
-                                            <td>2020-12-23</td>
-                                            <td><Link to="" rel="noreferrer noopener">[삭제]</Link></td>
-                                        </tr>
-                                        <tr>
-                                            <td>123</td>
-                                            <td className="text-left"><Link to="#" rel="noreferrer noopener">게시판 게시글입니다.</Link></td>
-                                            <td>정우성</td>
-                                            <td>1232</td>
-                                            <td>2020-12-23</td>
-                                            <td><Link to="" rel="noreferrer noopener">[삭제]</Link></td>
-                                        </tr>
-                                        <tr class="last">
-                                            <td>123</td>
-                                            <td className="text-left"><Link to="#" rel="noreferrer noopener">게시판 게시글입니다.</Link></td>
-                                            <td>정우성</td>
-                                            <td>1232</td>
-                                            <td>2020-12-23</td>
-                                            <td><Link to="" rel="noreferrer noopener">[삭제]</Link></td>
-                                        </tr>
+                                        {boardList.map((boardVo)=> {
+                                            return (
+                                                <ItemBoard key={boardVo.no} board={boardVo} />
+                                            )
+                                        })}
                                     </tbody>
                                 </table>
                     

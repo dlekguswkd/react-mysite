@@ -18,6 +18,7 @@ import List from './pages/board/List';
 import BoardModifyForm from './pages/board/ModifyForm';
 import Read from './pages/board/Read';
 import BoardWriteForm from './pages/board/WriteForm';
+import ItemBoard from './pages/board/ItemBoard';
 
 // css
 import './css/mysite.css';
@@ -46,6 +47,7 @@ function App() {
 					<Route path='/board/modifyform' element={<BoardModifyForm />} />
 					<Route path='/board/read' element={<Read />} />
 					<Route path='/board/writeform' element={<BoardWriteForm />} />
+					<Route path='/board/itemboard' element={<ItemBoard />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

@@ -54,7 +54,7 @@ const LoginForm = () => {
         // 서버로 데이터 전송
         axios({
             method: 'post', // put, post, delete  데이터 보내기 -> post
-            url: 'http://localhost:9000/api/users/login',
+            url: `${process.env.REACT_APP_API_URL}/api/users/login`,
 
             headers: { "Content-Type": "application/json; charset=utf-8" }, 	// post put
 

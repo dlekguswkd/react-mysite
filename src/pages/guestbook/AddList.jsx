@@ -29,7 +29,7 @@ const AddList = () => {
         // 서버로 데이터 전송
         axios({
             method: 'get', // put, post, delete
-            url: 'http://localhost:9000/api/guestbooks',
+            url: `${process.env.REACT_APP_API_URL}/api/guestbooks`,
 
             // params: guestbookVo, // get delete 쿼리스트링(파라미터)
 
@@ -83,7 +83,7 @@ const AddList = () => {
         // 서버로 데이터 전송
         axios({
             method: 'post', // 저장 (등록)
-            url: 'http://localhost:9000/api/guestbooks',
+            url: `${process.env.REACT_APP_API_URL}/api/guestbooks`,
 
             headers: { "Content-Type": "application/json; charset=utf-8" }, 	// post put
 

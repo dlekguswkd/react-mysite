@@ -67,7 +67,7 @@ const JoinForm = () => {
         // 서버로 데이터 전송
         axios({
             method: 'post',         // 저장 (등록)
-            url: 'http://localhost:9000/api/users',
+            url: `${process.env.REACT_APP_API_URL}/api/users`,
 
             headers: { "Content-Type": "application/json; charset=utf-8" }, 	// post put 보낼때
 
@@ -104,7 +104,7 @@ const JoinForm = () => {
          // 서버로 데이터 전송
         axios({
             method: 'post',         // 저장 (등록)
-            url: `http://localhost:9000/api/users/${id}`,
+            url: `${process.env.REACT_APP_API_URL}/api/users/${id}`,
 
             headers: { "Content-Type": "application/json; charset=utf-8" }, 	// post put 보낼때
 

@@ -44,7 +44,7 @@ const DeleteForm = () => {
         // 서버로 데이터 전송
         axios({
             method: 'delete', // put, post, delete
-            url: `http://localhost:9000/api/guestbooks/${no}`,
+            url: `${process.env.REACT_APP_API_URL}/api/guestbooks/${no}`,
 
             headers: { "Content-Type": "application/json; charset=utf-8" }, 	// post put
 

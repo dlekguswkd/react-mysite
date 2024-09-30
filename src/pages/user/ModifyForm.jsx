@@ -41,7 +41,7 @@ const ModifyForm = () => {
         // 서버로 데이터 전송
         axios({
             method: 'get',   // 한명데이터 가져와
-            url: 'http://localhost:9000/api/users/me',  // 수정폼의 역할
+            url: `${process.env.REACT_APP_API_URL}/api/users/me`,  // 수정폼의 역할
             headers: { "Authorization": `Bearer ${token}` },		// 토큰받기
 
             responseType: 'json' //수신타입 받을때

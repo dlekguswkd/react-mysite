@@ -29,7 +29,7 @@ const List = () => {
         // 서버로 데이터 전송
         axios({
             method: 'get', // put, post, delete
-            url: 'http://localhost:9000/api/boards',
+            url: `${process.env.REACT_APP_API_URL}/api/boards`,
 
             responseType: 'json' //수신타입 받을때
         }).then(response => {

@@ -22,6 +22,7 @@ const List = () => {
 
 	/*---상태관리 변수들(값이 변화면 화면 랜더링) ----------*/
     const [boardList, setBoardList] = useState([]);
+    const [token, setToken] = useState(localStorage.getItem('token')); 
 
 	/*---일반 메소드 -----------------------------------------*/
     const getBoardList = ()=> {
@@ -50,6 +51,39 @@ const List = () => {
         getBoardList();
 
     }, []);
+
+    // 삭제버튼 클릭했을때
+    const handleDel = (no)=> {
+        console.log("삭제버튼 클릭");
+
+        // 서버로 데이터 전송
+        axios({
+            method: 'delete',       // put, post, delete
+            url: `${process.env.REACT_APP_API_URL}/api/boards/${no}`,
+
+            responseType: 'json' //수신타입 받을때
+        }).then(response => {
+            console.log(response); //수신데이타
+            console.log(response.data.result);
+
+            if(response.data.result === 'success') {
+
+                let newArray = boardList.filter((board)=>{
+                    return board.no !== no;
+                });
+                // let newArray = personList.filter((person)=>(person.personId !== no));
+
+                setBoardList(newArray);
+
+            }else {
+                alert(response.data.message);       // "해당번호가 없습니다."
+            }
+            
+        }).catch(error => {
+            console.log(error);
+        }); 
+
+    };
 
 
 
@@ -107,9 +141,10 @@ const List = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        
                                         {boardList.map((boardVo)=> {
                                             return (
-                                                <ItemBoard key={boardVo.no} board={boardVo} />
+                                                <ItemBoard key={boardVo.no} board={boardVo} delBoard={handleDel} />
                                             )
                                         })}
                                     </tbody>
@@ -134,8 +169,15 @@ const List = () => {
                                     
                                     <div className="clear"></div>
                                 </div>
-                                <Link to="" rel="noreferrer noopener" id="btn_write" >글쓰기</Link>
-                            
+
+                                {
+                                    (token != null)?( //로그인 했을때
+                                        <Link to="/board/writeform" rel="noreferrer noopener" id="btn_write" >글쓰기</Link>
+                                    ):(         //로그인 안했을때
+                                        <div></div>
+                                    )
+                                }
+                                
                             </div>
                             {/* <!-- //list --> */}
                         </div>

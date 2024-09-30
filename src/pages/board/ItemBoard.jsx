@@ -1,7 +1,6 @@
 //import 라이브러리
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-// import React, {useState} from 'react';	화면 상태관리
 // import { useSearchParams} from 'react-router-dom';	파라미터값사용하는 라우터
 
 //import 컴포넌트
@@ -17,7 +16,9 @@ const ItemBoard = (props) => {
 	/*---라우터 관련------------------------------------------*/
 
 	/*---상태관리 변수들(값이 변화면 화면 랜더링) ----------*/
-    const {board} = props;
+    const {board, delBoard} = props;
+    const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem('authUser')));
+
 
 	/*---일반 메소드 -----------------------------------------*/
 
@@ -28,11 +29,19 @@ const ItemBoard = (props) => {
         <>
             <tr class="last">
                 <td>{board.no}</td>
-                <td className="text-left"><Link to="#" rel="noreferrer noopener">{board.title}</Link></td>
+                <td className="text-left"><Link to={`/board/read/${board.no}`} rel="noreferrer noopener">{board.title}</Link></td>
                 <td>{board.name}</td>
                 <td>{board.hit}</td>
                 <td>{board.regDate}</td>
-                <td><Link to="" rel="noreferrer noopener">[삭제]</Link></td>
+
+                {
+                    (authUser.no === board.userNo)?(
+                        <td> <button type="button" onClick={() =>{return delBoard(board.no)}}>[삭제]</button></td>
+                    ):(
+                        <td></td>
+                    )
+                }
+                
             </tr>
         </>
     );

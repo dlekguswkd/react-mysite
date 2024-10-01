@@ -44,7 +44,7 @@ function App() {
 					<Route path='/attach/form2' element={<AttachForm2 />} />
 
 					<Route path='/board/list' element={<List />} />
-					<Route path='/board/modifyform' element={<BoardModifyForm />} />
+					<Route path='/board/modifyform/:no' element={<BoardModifyForm />} />
 					<Route path='/board/read/:no' element={<Read />} />
 					<Route path='/board/writeform' element={<BoardWriteForm />} />
 					<Route path='/board/itemboard' element={<ItemBoard />} />

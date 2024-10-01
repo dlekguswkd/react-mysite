@@ -143,7 +143,7 @@ const Read = () => {
                                     
                                     {
                                         (authUser.no === userNo)?(
-                                            <Link to="/board/modifyform" rel="noreferrer noopener" id="btn_modify" >수정</Link>
+                                            <Link to={`/board/modifyform/${no}`} rel="noreferrer noopener" id="btn_modify" >수정</Link>
                                         ):(
                                             <div></div>
                                         )

@@ -107,7 +107,7 @@ const ModifyForm = () => {
         // 서버로 데이터 전송
         axios({
             method: 'put',  // 수정
-            url: 'http://localhost:9000/api/users/me',
+            url: `${process.env.REACT_APP_API_URL}/api/users/me`,
 
             // 헤더 두번쓰면 안되고 합쳐서 보내줘야함
             headers: { "Content-Type": "application/json; charset=utf-8",   // post put

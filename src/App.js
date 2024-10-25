@@ -20,6 +20,8 @@ import Read from './pages/board/Read';
 import BoardWriteForm from './pages/board/WriteForm';
 import ItemBoard from './pages/board/ItemBoard';
 
+import Chat from './pages/ai/Chat';
+
 // css
 import './css/mysite.css';
 
@@ -48,6 +50,8 @@ function App() {
 					<Route path='/board/read/:no' element={<Read />} />
 					<Route path='/board/writeform' element={<BoardWriteForm />} />
 					<Route path='/board/itemboard' element={<ItemBoard />} />
+
+					<Route path='/ai/chat' element={<Chat />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

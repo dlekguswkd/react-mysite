@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+#ai #chat-box {
+    height: 400px;
+    background-color: #c4c4c4;
+    padding: 20px;
+}
+
+
+#ai #txt-question {
+    height: 30px;
+    width: 97%;
+    padding: 10px;
+    font-size: 15px;
+}
+
+
+#ai #btn-sending {
+    width: 300px;
+    padding: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+
+#ai #chat-box {
+    overflow-y: scroll;
+}
+
+
+#ai #chat-box .user-msg-box {
+    text-align: right;
+}
+
+
+#ai #chat-box .user-msg {
+    max-width: 300px;
+    float: right;
+    font-size: 13px;
+    padding: 10px;
+    background-color: #f3f190;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+
+#ai #chat-box .bot-msg-box {
+    text-align: left;
+}
+
+
+#ai #chat-box .bot-msg {
+    max-width: 300px;
+    float: left;
+    font-size: 13px;
+    padding: 10px;
+    background-color: #ffffff;
+    word-wrap: break-word;
+    word-break: break-all;
+}
